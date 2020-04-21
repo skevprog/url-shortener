@@ -8,9 +8,9 @@ connectDB();
 
 app.use(express.json({ extended: false }));
 
-app.use('/', require('./routes/index'));
+app.use('/', require('./routes'));
 
-app.use('/api/url', require('./routes/url'));
+app.use('/api/urls', require('./routes/urls'));
 
 const PORT = process.env.PORT || 5000;
 
