@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <h1 class="font-bold text-lg text-5xl text-center">URL Shortener</h1>
+    </div>
+    <div class="w-full max-w-xs mx-auto">
+        <form action="/shorten" method="POST" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="url">
+                    Url
+                </label>
+                <input
+                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    id="fullUrl" name="fullUrl" type="url" placeholder="Url">
+            </div>
+            <div class="flex items-center justify-between">
+                <button
+                    class="bg-teal-400 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                    type="submit">
+                    Short Url
+                </button>
+            </div>
+    </div>
+    </form>
+    <div>
+        <table class="table-auto mx-auto">
+            <thead>
+                <tr>
+                    <th class="px-4 py-2 text-left">Url</th>
+                    <th class="px-4 py-2 text-left">Short Url</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% urls.forEach(text => { %>
+                <tr>
+                    <td class="max-w-sm truncate ... pr-8 border px-4 py-2"> 
+                        <%= text.longUrl %>
+                    </td>
+                    <td class="hover:bg-teal-400 cursor-pointer border px-4 py-2"><a href="<%= text.shortUrl %>"><%= text.urlCode %></a>
+                    </td>
+                </tr>
+                <%}) %>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>

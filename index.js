@@ -1,16 +1,18 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 const connectDB = require('./config/db');
 
 const app = express();
+
+app.set('view engine', 'ejs');
 
 // Connect to db
 connectDB();
 
 app.use(express.json({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: false }));
 
-app.use('/', require('./routes'));
-
-app.use('/api/urls', require('./routes/urls'));
+app.use('/', require('./routes/urls'));
 
 const PORT = process.env.PORT || 5000;
 
